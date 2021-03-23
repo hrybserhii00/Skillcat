@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+/*
+Example usage:
+https://skillcat.app/test2.html?userid=3&courseid=14&grade=75&serverurl=https%3A%2F%2Fskillcat.app&activityname=URL%20Articulate%20-%20In%20pop-up
+*/
+
+let params = (new URL(document.location)).searchParams;
+var server = params.get('serverurl') + '/webservice/rest/server.php';
+
+var userdata = {
+    wstoken: 'a9531ad79c16e2485114a341fa078f75',
+    wsfunction: 'local_articulate_save_grade',
+    moodlewsrestformat: 'json',
+    userid: params.get('userid'),
+    courseid: params.get('courseid'),
+    activityname: params.get('activityname'),
+    grade: params.get('grade')
+};
+  
+$.ajax({
+    type: 'POST',
+    data: userdata,
+    url: server
+});
+
+</script>
+</head>
+<body>
+</body>
+</html>

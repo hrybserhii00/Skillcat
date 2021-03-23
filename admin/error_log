@@ -1,0 +1,10 @@
+[30-Jul-2020 06:16:26 America/New_York] Default exception handler: Invalid permissions detected when trying to create a directory. Turn debugging on for further details. Debug: [cachedir]/cachestore_file/default_application can not be created, check permissions.
+Error code: invaliddatarootpermissions
+* line 1551 of /lib/setuplib.php: invalid_dataroot_permissions thrown
+* line 1754 of /lib/setuplib.php: call to make_writable_directory()
+* line 155 of /cache/stores/file/lib.php: call to make_cache_directory()
+* line 553 of /cache/classes/helper.php: call to cachestore_file->__construct()
+* line 518 of /cache/classes/helper.php: call to cache_helper::purge_store()
+* line 1929 of /lib/upgradelib.php: call to cache_helper::purge_all()
+* line 711 of /admin/index.php: call to upgrade_noncore()
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+
+let params = (new URL(document.location)).searchParams;
+var server = params.get('serverurl') + '/webservice/rest/server.php';
+
+var userdata = {
+    "wstoken": "a9531ad79c16e2485114a341fa078f75",
+    "wsfunction": "local_articulate_save_grade",
+    "moodlewsrestformat": "json",
+    "userid": params.get('userid'),
+    "courseid": params.get('courseid'),
+    "activityName": params.get('activityname'),
+    "grade": 82
+};
+
+/*
+//Fetch attempt #1 - does not accept wstoken for some inexplicable reason
+fetch(serverurl, {
+    method: 'POST', 
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(userdata),
+})
+//.then(response => response.json())
+.then(response => response.text())
+.then(data => {console.log('Success:', data)})
+.catch((error) => {console.error('Error:', error)});
+*/
+
+//Fetch attempt #2 - does not accept wstoken for some inexplicable reason
+// request options
+const options = {
+    method: 'POST',
+    body: userdata,
+    headers: {
+        'Content-Type': 'application/json'
+    }
+}
+
+// send post request
+fetch(server, options)
+    .then(res => res.text())
+    .then(res => console.log(res))
+    .catch(err => console.error(err));
+
+
+/*
+//XHR attempt #1 - does not accept wstoken for some inexplicable reason
+const xhr = new XMLHttpRequest();
+
+xhr.onload = () => {
+    if (xhr.status >= 200 && xhr.status < 300) {
+        //const response = JSON.parse(xhr.responseText);
+        console.log(xhr.responseText);
+    }
+};
+
+xhr.open("POST", server, true);
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.send(JSON.stringify(userdata));
+
+request.onreadystatechange = function () { 
+    if (request.readyState === 4) {
+        if (request.status === 200) {
+            console.log(request.responseText);
+            console.error(userdata);
+        } else {
+            console.error(request.statusText);
+        }
+    }
+};
+*/
+</script>
+</head>
+<body>
+</body>
+</html>

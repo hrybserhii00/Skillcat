@@ -1,0 +1,13 @@
+Web service template plugin for Moodle 3.X
+------------------------------------------
+
+This is a library for any and all custom web services consumed by 3rd party quiz simulations; Articulate Storyline specifically but any other system will work as well.
+
+a9531ad79c16e2485114a341fa078f75
+
+Example:
+https://guroo.app/articulate/Tool_ID/story.html?name=Leopolde%20Syrope&email=leopolde@syrop.com&activityname=Last%20Slide%20Test&serverurl=https%3A%2F%2Fguroo.app&courseid=32
+
+Retrieve token:
+https://skillcat.app/login/token.php?username=ws_user&password=Rufus@1972&service=ARTICULATE_SERVICE
+
